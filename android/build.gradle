@@ -28,7 +28,6 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 30
 
-    // Add this line to specify the namespace
     namespace 'carnegietechnologies.gallery_saver'
 
     sourceSets {
@@ -41,6 +40,16 @@ android {
     lintOptions {
         disable 'InvalidPackage'
     }
+
+    // Specify Java compatibility
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8' // Match this with the Java version
+    }
 }
 
 dependencies {
@@ -51,4 +60,5 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
 }
+
 
